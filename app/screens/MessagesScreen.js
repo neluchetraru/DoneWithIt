@@ -4,7 +4,7 @@ import ListItem from '../components/ListItem'
 import ListItemSeparator from '../components/ListItemSeparator'
 import ListItemDeleteAction from '../components/ListItemDeleteAction'
 
-import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import Screen from '../components/Screen'
 
 
 const initialMessages = [
@@ -32,7 +32,7 @@ export default function MessagesScreen() {
   }
 
   return (
-    <SafeAreaView>
+    <Screen>
         <FlatList 
             data={messages}
             keyExtractor={message => message.id}
@@ -49,7 +49,7 @@ export default function MessagesScreen() {
                 setMessages(initialMessages)
             }}
         />
-    </SafeAreaView>
+    </Screen>
   )
 }
 

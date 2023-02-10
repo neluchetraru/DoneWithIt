@@ -1,18 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Alert, Button, Image, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import * as ImagePicker from 'expo-image-picker'
+import * as Permissions from 'expo-permissions'
 
 import AppButton from './app/components/AppButton';
 import AppPicker from './app/components/AppPicker';
 import AppTextInput from './app/components/AppTextInput';
 import Card from './app/components/Card';
+import AppFormPicker from './app/components/forms/AppFormPicker';
 import Screen from './app/components/Screen';
 import AccountScreen from './app/screens/AccountScreen';
 import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
+import ListingEditScreen from './app/screens/ListingEditScreen';
 import ListingsScreen from './app/screens/ListingsScreen';
+import LoginScreen from './app/screens/LoginScreen';
 import MessagesScreen from './app/screens/MessagesScreen';
+import RegisterScreen from './app/screens/RegisterScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
+import ImageInput from './app/components/forms/ImageInput';
+import ImageInputList from './app/components/ImageInputList';
 
 const categories = [
   { label: 'Furniture', value: 1 },
@@ -21,11 +29,9 @@ const categories = [
 ]
 
 export default function App() {
-  const [category, setCategory] = useState()
   return (
     <Screen>
-      <AppPicker placeholder="Email" icon="apps" items={categories} selectedItem={category} onSelectedItem={item => setCategory(item)}/>
-      <AppTextInput placeholder="Email" icon="email" />
+      <ListingEditScreen />
     </Screen>
   );
 }
